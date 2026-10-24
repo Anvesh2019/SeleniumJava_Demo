@@ -36,6 +36,20 @@ public class clsLocators
 	    dr.close();
 	}
 	@Test
+	public void LearnId() throws InterruptedException
+	{
+		
+		WebDriver dr = new ChromeDriver();
+		dr.get("https://www.google.com/");
+		WebElement txtSearch=dr.findElement(By.id("ti6dpd"));
+		txtSearch.sendKeys("Selenium WebDriver");
+		txtSearch.submit();
+		Thread.sleep(2000);
+		Assert.assertTrue(dr.getCurrentUrl().contains("q=Selenium+WebDriver"), "URL does not contain expected text");
+		Assert.assertTrue(dr.getTitle().contains("Selenium WebDriver"), "Page title does not match expected value");
+	    dr.close();
+	}
+	@Test
 	public void LearnLinktext() throws InterruptedException
 	{
 		
